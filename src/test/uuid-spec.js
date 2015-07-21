@@ -50,27 +50,29 @@ describe ('A Universally Unique IDentifier designed by RFC4122 v4 ', function ()
 
 	describe ('should generats values fast and ', function () {
 		it ('is expected one UUID value is generated within 2ms.', function () {
-			var EXPECTED_LIST_LENGTH = 1,
-				EXPECTED_TIME = 2,
+			var uuidListLength = 1,
+				minimumTime = 0,
+				maximumTime = 2,
 				response = {};
 
-			response = getUuidList(EXPECTED_LIST_LENGTH);
+			response = getUuidList(uuidListLength);
 
-			expect (response.list).to.have.length(EXPECTED_LIST_LENGTH, 'there less than 1 UUIDs.');			
-			expect (response.time).to.be.least(0, 'no time spend.');
-			expect (response.time).to.be.below(EXPECTED_TIME, 'costs more time.');
+			expect (response.list).to.have.length(uuidListLength, 'there less than 1 UUIDs.');			
+			expect (response.time).to.be.least(minimumTime, 'no time spend.');
+			expect (response.time).to.be.below(maximumTime, 'costs more time.');
 		});
 
 		it ('is expected 1000 UUID values are generated within 2ms.', function () {
-			var EXPECTED_LIST_LENGTH = 1000,
-				EXPECTED_TIME = 2,
+			var uuidListLength = 1000,
+				minimumTime = 0,
+				maximumTime = 2,
 				response = {};
 
-			response = getUuidList(EXPECTED_LIST_LENGTH);
+			response = getUuidList(uuidListLength);
 
-			expect (response.list).to.have.length(EXPECTED_LIST_LENGTH, 'there less than 1 UUIDs.');			
-			expect (response.time).to.be.least(0, 'no time spend.');
-			expect (response.time).to.be.below(EXPECTED_TIME, 'costs more time.');
+			expect (response.list).to.have.length(uuidListLength, 'there less than 1 UUIDs.');			
+			expect (response.time).to.be.least(minimumTime, 'no time spend.');
+			expect (response.time).to.be.below(maximumTime, 'costs more time.');
 		});
 	});
 });
