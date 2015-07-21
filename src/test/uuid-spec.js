@@ -4,14 +4,14 @@ var expect = require('chai').expect,
 describe ('A Universally Unique IDentifier designed by RFC4122 v4 ', function () {
 
 	var getUuidList = function (length) {
-			var start = 0, end = 0, list = [];
+		var start = 0, end = 0, list = [];
 
-			start = new Date().getMilliseconds();
-			while (length > 0) {
-				list.push(UUID.generate());
-				length--;	
-			}			
-			end = new Date().getMilliseconds();
+		start = new Date().getMilliseconds();
+		while (length > 0) {
+			list.push(UUID.generate());
+			length--;	
+		}			
+		end = new Date().getMilliseconds();
 
 		return ({
 			list: list, 
