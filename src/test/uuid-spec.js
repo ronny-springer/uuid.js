@@ -70,7 +70,7 @@ describe ('A Universally Unique IDentifier designed by RFC4122 v4 ', function ()
 
 			response = getUuidList(uuidListLength);
 
-			expect (response.list).to.have.length(uuidListLength, 'there less than 1 UUIDs.');			
+			expect (response.list).to.have.length(uuidListLength, 'there less than 1000 UUIDs.');			
 			expect (response.time).to.be.least(minimumTime, 'no time spend.');
 			expect (response.time).to.be.below(maximumTime, 'costs more time.');
 		});
