@@ -30,6 +30,10 @@ describe ('A Universally Unique IDentifier designed by RFC4122 v4 ', function ()
 			expect(UUID.generate()).to.deep.match(/^[0-9a-fA-F\-]/);
 			expect(UUID.generate()).to.not.deep.match(/^[g-z]/, 'matches non-hex values.');
 		});
+		it ('is expected to be not wrapped in curly braces.', function () {
+			expect(UUID.generate().substr(0, 1)).to.not.deep.equal('{', 'starts with ´{´.');
+			expect(UUID.generate().substr(35, 1)).to.not.deep.equal('}', 'ends with ´{´.');
+		});
 		it ('is expected to contain four ´-´ delimiter.', function () {
 			expect(UUID.generate().split('-')).to.have.length(5, 'more than four delimiters.');
 		});
