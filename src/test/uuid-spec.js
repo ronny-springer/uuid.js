@@ -37,7 +37,7 @@ describe ('A Universally Unique IDentifier designed by RFC4122 v4 ', function ()
 		it ('is expected to contain four ´-´ delimiter.', function () {
 			expect(UUID.generate().split('-')).to.have.length(5, 'more than four delimiters.');
 		});
-		it ('is expected to have a four at 15th position.', function () {
+		it ('is expected to have a four char at 15th position.', function () {
 			expect(UUID.generate().substr(14, 1)).to.deep.equal('4');
 		});		
 	});
@@ -56,7 +56,8 @@ describe ('A Universally Unique IDentifier designed by RFC4122 v4 ', function ()
 
 			response = getUuidList(EXPECTED_LIST_LENGTH);
 
-			expect (response.list).to.have.length(EXPECTED_LIST_LENGTH, 'there less than 1 UUIDs.');
+			expect (response.list).to.have.length(EXPECTED_LIST_LENGTH, 'there less than 1 UUIDs.');			
+			expect (response.time).to.be.least(0, 'no time spend.');
 			expect (response.time).to.be.below(EXPECTED_TIME, 'costs more time.');
 		});
 
@@ -67,7 +68,8 @@ describe ('A Universally Unique IDentifier designed by RFC4122 v4 ', function ()
 
 			response = getUuidList(EXPECTED_LIST_LENGTH);
 
-			expect (response.list).to.have.length(EXPECTED_LIST_LENGTH, 'there less than 1 UUIDs.');
+			expect (response.list).to.have.length(EXPECTED_LIST_LENGTH, 'there less than 1 UUIDs.');			
+			expect (response.time).to.be.least(0, 'no time spend.');
 			expect (response.time).to.be.below(EXPECTED_TIME, 'costs more time.');
 		});
 	});
