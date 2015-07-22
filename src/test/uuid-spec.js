@@ -40,7 +40,10 @@ describe ('A Universally Unique IDentifier designed by RFC4122 v4 ', function ()
 		});
 		it ('is expected to have a four char at 15th position.', function () {
 			expect(UUID.generate().substr(14, 1)).to.deep.equal('4');
-		});		
+		});	
+		it ('is expected to have one of 8, 9, a, b char at 20th position.', function () {
+			expect(UUID.generate().substr(19, 1)).to.deep.match(/^[89abAB]/);
+		});
 	});
 	
 	describe ('should provids random value and ', function () {
