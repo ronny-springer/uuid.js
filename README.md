@@ -1,7 +1,8 @@
 # uuid.js
 A Universally Unique IDentifier generator for JavaScript designed by RFC4122 v4.
+UUIDs, also known as GUIDs, are usually stored as 128-bit values, and are commonly displayed as 32 hexadecimal digits with groups separated by hyphens, such as {xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx}.['1'][1]['2'][2]
 
-UUID code was an answer to stackoverflow question ['Create GUID / UUID in JavaScript?'][1] endered by Jeff Ward (jcward.com).
+UUID code was an answer to stackoverflow question ['Create GUID / UUID in JavaScript?'][3] endered by Jeff Ward (jcward.com).
 
 ##How to install 
 UUID generator is provided as AMD, CommonJs or global variable at window object.
@@ -9,6 +10,8 @@ Use `npm install https://github.com/ronny-springer/uuid.js --save-dev` to instal
 
 ##How to run test
 Test cases are written with mocha and chai.
-Use `mocha src/test/uuid-spec.js` to run all test cases.
+Use `npm test` to run all test cases.
 
-[1]: http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript/21963136#21963136
+[1]: http://www.ietf.org/rfc/rfc4122.txt
+[2]: https://en.wikipedia.org/wiki/Globally_unique_identifier
+[3]: http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript/21963136#21963136
