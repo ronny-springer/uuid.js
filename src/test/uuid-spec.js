@@ -9,15 +9,16 @@ describe ('A Universally Unique IDentifier designed by RFC4122 v4 ', function ()
 		start = new Date().getMilliseconds();
 		while (length > 0) {
 			list.push(UUID.generate());
-			length--;	
-		}			
+			length--;
+		}
 		end = new Date().getMilliseconds();
 
 		return ({
-			list: list, 
+			list: list,
 			time: (end - start)
 		});
 	}
+
 
 	describe ('should follows the semantics and ', function () {
 		it ('is expected to generate a string value.', function () {
@@ -30,7 +31,7 @@ describe ('A Universally Unique IDentifier designed by RFC4122 v4 ', function ()
 			expect(UUID.generate()).to.deep.match(/^[0-9a-fA-F\-]/);
 			expect(UUID.generate()).to.not.deep.match(/^[g-z]/, 'matches non-hex values.');
 		});
-		it ('is expected to be not wrapped in curly braces.', function () {			
+		it ('is expected to be not wrapped in curly braces.', function () {
 			expect(UUID.generate().substr(0, 1)).to.not.deep.equal('{', 'starts with ´{´.');
 			expect(UUID.generate().substr(35, 1)).to.not.deep.equal('}', 'ends with ´{´.');
 		});
@@ -57,7 +58,7 @@ describe ('A Universally Unique IDentifier designed by RFC4122 v4 ', function ()
 
 			response = getUuidList(uuidListLength);
 
-			expect (response.list).to.have.length(uuidListLength, 'there less than 1 UUIDs.');			
+			expect (response.list).to.have.length(uuidListLength, 'there less than 1 UUIDs.');
 			expect (response.time).to.be.least(minimumTime, 'no time spend.');
 			expect (response.time).to.be.below(maximumTime, 'costs more time.');
 		});
@@ -70,7 +71,7 @@ describe ('A Universally Unique IDentifier designed by RFC4122 v4 ', function ()
 
 			response = getUuidList(uuidListLength);
 
-			expect (response.list).to.have.length(uuidListLength, 'there less than 1000 UUIDs.');			
+			expect (response.list).to.have.length(uuidListLength, 'there less than 1000 UUIDs.');
 			expect (response.time).to.be.least(minimumTime, 'no time spend.');
 			expect (response.time).to.be.below(maximumTime, 'costs more time.');
 		});
